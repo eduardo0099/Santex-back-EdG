@@ -1,0 +1,16 @@
+model Team {
+  id           String        @id @default(uuid())
+  externalId   Int           @unique
+  name         String
+  tla          String?
+  shortName    String?
+  areaName     String
+  address      String?
+  competitions Competition[] @relation("TeamsOnCompetitions")
+  players      Player[]      @relation("PlayersOnTeams")
+  coach        Coach?        @relation(fields: [coachId], references: [id])
+  coachId      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

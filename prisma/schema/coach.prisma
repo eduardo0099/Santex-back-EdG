@@ -1,0 +1,11 @@
+model Coach {
+  id          String    @id @default(uuid())
+  externalId  Int       @unique
+  name        String
+  dateOfBirth DateTime?
+  nationality String?
+  teams       Team[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

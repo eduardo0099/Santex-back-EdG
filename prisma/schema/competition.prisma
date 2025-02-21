@@ -1,0 +1,11 @@
+model Competition {
+  id         String @id @default(uuid())
+  externalId Int    @unique
+  name       String
+  code       String @unique
+  areaName   String
+  teams      Team[] @relation("TeamsOnCompetitions")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
